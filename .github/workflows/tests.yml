@@ -10,6 +10,9 @@ jobs:
   run-ci:
     name: Run E2E Tests
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./server/
 
     services:
       postgres:
@@ -40,6 +43,6 @@ jobs:
         with:
           node-version: 20
           cache: "pnpm"
-
-      - run: cd server && pnpm install --frozen-lockfile
-      - run: cd server && pnpm run test
+          cache-dependency-path: "./server/pnpm-lock.yaml"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run test
