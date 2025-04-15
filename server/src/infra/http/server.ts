@@ -63,5 +63,5 @@ server.register(registerLinkVisitRoute);
 server.register(exportLinksRoute);
 
 server.listen({ port: 3333, host: "0.0.0.0" }).then(() => {
-  console.log("HTTP server running!");
+  console.log(`HTTP server running on port ${3333}!`);
 });
